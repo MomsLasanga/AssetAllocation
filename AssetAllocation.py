@@ -134,7 +134,6 @@ class UiMainWindow(object):
 
     # this method sets up the ui as well as a couple of variables used accross the program
     def __init__(self, main_win):
-        main_win.setWindowIcon(QtGui.QIcon('Money.ico'))
         button_stylesheet = "background-color: #3F3F3F; color: #ffffff"  # style sheet
         self.info_table = []  # table of investment information and positions we print out to the user
         self.current_balances = [-1]  # current balances tracks the list of fund balances pulled from the csv file
