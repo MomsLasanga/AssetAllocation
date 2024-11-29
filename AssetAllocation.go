@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/csv"
 	"fmt"
 	"log"
 	"os"
@@ -25,16 +24,18 @@ type AllocationCalculator struct {
 }
 
 func (ac *AllocationCalculator) scrapeValuesFromCSV(filename string) error {
-	file, err := os.Open(filename)
+	input, err := os.ReadFile(filename)
 	if err != nil {
 		return err
 	}
-	defer file.Close()
 
-	reader := csv.NewReader(file)
-	records, err := reader.ReadAll()
-	if err != nil {
-		return err
+	lines := strings.Split(string(input), "\n")
+	var records [16][16]string
+	for i, line := range lines {
+		var commaSeperatedValues = strings.Split(string(line), ",")
+		for j, value := range commaSeperatedValues {
+			records[i][j] = value
+		}
 	}
 
 	ac.currentBalances = nil
