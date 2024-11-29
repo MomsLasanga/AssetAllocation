@@ -65,9 +65,9 @@ class UiMainWindow(object):
             # reset the info table list and set its values to the headings
             self.info_table = [['Symbol', 'Current Value', 'Current Allocation', 'Target value', 'Target Allocation']]
             for i in range(2, 5):  # read through the csv list
-                temp_balances.append(csv_list[i][6])  # access the current values
+                temp_balances.append(csv_list[i][7])  # access the current values
                 self.current_balances.append(float(temp_balances[i - 2].replace('$', '')))  # remove the '$' sign
-                temp_names.append(csv_list[i][1])  # add the name of the fund to label names
+                temp_names.append(csv_list[i][2])  # add the name of the fund to label names
             self.info_table.append(temp_names)  # add the names and balances lists to the
             self.info_table.append(temp_balances)  # info table list
 
@@ -76,35 +76,35 @@ class UiMainWindow(object):
 
         # Fixed Asset Allocation Percentages based on age/year of user (mine is set to every 20XX year, because I was
         # born in 1999)
-        if "2020" in self.filename:
-            bond_percentage = .2
+        if "202" in self.filename:
+            bond_percentage = .1
             international_index_percentage = .3
-            national_index_percentage = .5
-        elif "2030" in self.filename:
+            national_index_percentage = .6
+        elif "203" in self.filename:
             bond_percentage = .3
             international_index_percentage = .27
             national_index_percentage = .43
-        elif "2040" in self.filename:
+        elif "204" in self.filename:
             bond_percentage = .4
             international_index_percentage = .23
             national_index_percentage = .37
-        elif "2050" in self.filename:
+        elif "205" in self.filename:
             bond_percentage = .5
             international_index_percentage = .19
             national_index_percentage = .31
-        elif "2060" in self.filename:
+        elif "206" in self.filename:
             bond_percentage = .6
             international_index_percentage = .15
             national_index_percentage = .25
-        elif "2070" in self.filename:
+        elif "207" in self.filename:
             bond_percentage = .7
             international_index_percentage = .11
             national_index_percentage = .19
-        elif "2080" in self.filename:
+        elif "208" in self.filename:
             bond_percentage = .8
             international_index_percentage = .08
             national_index_percentage = .12
-        elif "2090" in self.filename:
+        elif "209" in self.filename:
             bond_percentage = .9
             international_index_percentage = .04
             national_index_percentage = .06
